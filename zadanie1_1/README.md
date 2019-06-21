@@ -1,1 +1,1 @@
-# dockertasks
+# docker run -v $(pwd):/data <name of container> <git url>
