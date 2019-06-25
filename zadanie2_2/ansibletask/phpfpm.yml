@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  tasks:
+   - name: Install nginx & php
+     package:
+      name: [nginx, php, php-fpm]
+      state: latest
+   - name: Copy nginx config
+     template:
+      src: default
+      dest: /etc/nginx/sites-available/default
+      backup: yes
+   - name: Create index.php 
+     shell: echo "<?php\n phpinfo();" > /var/www/html/index.php
+   - name: Restart services
+     service:
+      name: nginx
+      state: restarted
+...
