@@ -29,6 +29,8 @@ resource "aws_lb_target_group" "ecs-target-group" {
     tags {
       Name = "ecs-target-group"
     }
+
+  depends_on = ["aws_lb.ecs-load-balancer"]
 }
 
 resource "aws_lb_listener" "lb-listener" {
