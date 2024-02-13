@@ -1,3 +1,3 @@
 FROM nginx:latest
-COPY entrypoint.sh /
-ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint.sh /root
+ENTRYPOINT ["./root/entrypoint.sh"]
